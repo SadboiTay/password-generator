@@ -27,7 +27,7 @@ var generatePassword = function() {
 
     // CHANGE 3: Make sure that at least one option is selected, otherwise empty password
     if (includeLowercase || includeUppercase || includeNumber || includeSymbol) {
-      /* CHANGE 4: Reverse code so that the for loop is outside, and conditionals inside. We incrememnt var i inside of the ifs instead of in the for instantiation, and verify at each step that i<passwordLength. This is better for scalability, and means we don't have to slice at the end.*/
+      // CHANGE 4: Reverse code so that the for loop is outside, and conditionals inside. We incrememnt var i inside of the ifs instead of in the for instantiation, and verify at each step that i<passwordLength. This is better for scalability, and means we don't have to slice at the end.
       for (var i=0; i<passwordLength; i) {
         if (includeLowercase && i<passwordLength) {
           generatedPassword += generateChar(26, 97);
@@ -43,7 +43,7 @@ var generatePassword = function() {
         }
         if (includeSymbol && i<passwordLength) {
           generatedPassword += symbols[Math.floor(Math.random() * symbols.length)];
-          i++
+          i++;
         }
       }
       return generatedPassword;
